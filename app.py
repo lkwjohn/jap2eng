@@ -94,7 +94,7 @@ def makeWebhookResult(data):
     return Response::json([
                     'speech'   => $speech,
                     'displayText' => $speech,
-                    'data' => [],
+                    'data' => data,
                     'contextOut' => [],
                     'source' => "translate_japanese"
             ], 200);
