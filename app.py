@@ -83,13 +83,21 @@ def makeWebhookResult(data):
     print("Response:")
     print(speech)
 
-    return {
-        "speech": speech,
-        "displayText": speech,
-        # "data": data,
-        # "contextOut": [],
-        "source": "translate_japanese"
-    }
+    # return {
+    #     "speech": speech,
+    #     "displayText": speech,
+    #     # "data": data,
+    #     # "contextOut": [],
+    #     "source": "translate_japanese"
+    # }
+
+    return Response::json([
+                    'speech'   => $speech,
+                    'displayText' => $speech,
+                    'data' => [],
+                    'contextOut' => [],
+                    'source' => "translate_japanese"
+            ], 200);
 
 
 if __name__ == '__main__':
