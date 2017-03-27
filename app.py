@@ -62,15 +62,18 @@ def makeTranslateQuery(req):
 def makeWebhookResult(data):
     query = data.get('data')
     if query is None:
-        return {}
+        # return {}
+        speech = "data is empty"
 
     result = query.get('translations')
     if result is None:
-        return {}
+        # return {}
+        speech = "translations is empty"
 
     translatedText = result.get('translatedText')
     if translatedText is None:
-        return {}
+        # return {}
+        speech = "translations text is empty"
 
 
     # print(json.dumps(item, indent=4))
