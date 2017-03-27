@@ -38,14 +38,25 @@ def webhook():
 def processRequest(req):
     if req.get("result").get("action") != "translate_japanese":
         return {}
+
+    print("111111:")
     baseurl = "https://translation.googleapis.com/language/translate/v2?key=AIzaSyAhF49eTdOK088ldtFFkqEGt50FzWXSVoc&source=jp&target=en&"
     translate_query = makeTranslateQuery(req)
+
+    print("2222:")
     if translate_query is None:
         return {}
     yql_url = baseurl + urlencode({'q': translate_query}) 
+
+    print("333333:")
     result = urlopen(yql_url).read()
+
+    print("444444:")
     data = json.loads(result)
+
+    print("55555:")
     res = makeWebhookResult(data)
+    print("666666:")
     return res
 
 
